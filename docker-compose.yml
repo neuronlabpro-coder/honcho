@@ -33,6 +33,9 @@ services:
       - path: .env
         required: false
     restart: unless-stopped
+    networks:
+      - default
+      - dokploy-network
 
   deriver:
     build:
@@ -122,3 +125,6 @@ volumes:
   # -- Development: uncomment if using source mounts --
   # venv:
   # prometheus-data:
+networks:
+  dokploy-network:
+    external: true
