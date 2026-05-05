@@ -20,7 +20,7 @@ services:
       redis:
         condition: service_healthy
     ports:
-      - "127.0.0.1:8000:8000"
+      - "127.0.0.1:8001:8000"
     # -- Development: mount source for live reload --
     # volumes:
     #   - .:/app
@@ -61,7 +61,7 @@ services:
     image: pgvector/pgvector:pg15
     restart: unless-stopped
     ports:
-      - "127.0.0.1:5432:5432"
+      - "127.0.0.1:5433:5432"
     command: ["postgres", "-c", "max_connections=200"]
     environment:
       - POSTGRES_DB=postgres
@@ -81,7 +81,7 @@ services:
     image: redis:8.2
     restart: unless-stopped
     ports:
-      - "127.0.0.1:6379:6379"
+      - "127.0.0.1:6479:6379"
     volumes:
       - redis-data:/data
     healthcheck:
